@@ -1,0 +1,99 @@
+
+/* UDP CONCURRENT ECHO SERVICE*/
+Source Code:
+Server Program:
+#include<stdio.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<strings.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+main()
+{
+int i,sockfd,newsockfd,pid,cli_addr_len,n;
+char buff1[80];
+/*sockaddr_in is predefined structure*/
+struct sockaddr_in cli_addr,serv_addr;
+/*Creating a concurrent connection-less socket*/
+if((sockfd=socket(AF_INET,SOCK_DGRAM,0))<0)
+{
+perror("server: can’t open socket");
+}
+bzero((char *)&serv_addr,sizeof(serv_addr));
+/*Initializing the server socket with family,port number,ipaddress*/
+serv_addr.sin_family=AF_INET;
+serv_addr.sin_addr.s_addr=htonl(INADDR_ANY);
+serv_addr.sin_port=htons(7641);
+/*Binding the structure to the server socket*/
+if(bind(sockfd,(struct sockaddr *)&serv_addr,sizeof(serv_addr))<0)
+{
+perror("server:cant bind local address");
+exit(1);
+}
+cli_addr_len=sizeof(cli_addr);
+for(i=0;i<5;i++)
+{
+/*Receiving a message from Client*/
+n=recvfrom(sockfd,buff1,80,0,(struct sockaddr *)&cli_addr,&cli_addr_len);
+/*Create a child process*/
+pid=fork();
+if(pid==0)
+{
+write(1,"server has received:",21,0);
+write(1,buff1,n);
+/*Sending a message to Client Socket*/
+sendto(sockfd,buff1,80,0,(struct sockaddr *)&cli_addr,sizeof(cli_addr));
+exit(0);
+  }
+}
+/*Closing the socket*/
+close(sockfd);
+}
+
+Client Program:
+#include<sys/socket.h>
+#include<sys/types.h>
+#include<strings.h>
+#include<stdio.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+main()
+{
+int sockfd,n,serv_addr_len,cli_addr_len,i,num;
+char buff1[80],buff2[80];
+/*sockaddr_in is predefined structure*/
+struct sockaddr_in serv_addr,cli_addr;
+bzero((char *)&serv_addr,sizeof(serv_addr));
+/*Initializing the server socket with family,port number,ipaddress*/
+serv_addr.sin_family=AF_INET;
+serv_addr.sin_addr.s_addr=inet_addr("135.135.4.4");
+serv_addr.sin_port=htons(7641);
+if((sockfd=socket(AF_INET,SOCK_DGRAM,0))<0)
+{
+perror("client: socket error\n");
+}
+bzero((char *)&cli_addr,sizeof(cli_addr));
+/*Initializing the client socket with family,port number,ipaddress*/
+cli_addr.sin_family=AF_INET;
+cli_addr.sin_addr.s_addr=htonl(INADDR_ANY);
+cli_addr.sin_port=htons(0);
+/*Binding the structure to the server socket*/
+bind(sockfd,(struct sockaddr *)&cli_addr,sizeof(cli_addr));
+write(1,"client starts:",15);
+for(i=0;i<5;i++)
+{
+  write(1,"enter a message",16,0);
+  fflush(0);
+n=read(0,buff1,80);
+serv_addr_len=sizeof(serv_addr);
+/*Sending a message to Server*/
+sendto(sockfd,buff1,n,0,(struct sockaddr *)&serv_addr,serv_addr_len);
+/*Receiving a message from Server*/
+num=recvfrom(sockfd,buff2,n,0,(struct sockaddr *)&serv_addr,&serv_addr_len);
+write(1,"client has received",20,0);
+write(1,buff2,num);
+}
+/*Closing the socket*/
+close(sockfd);
+exit(0);
+}
