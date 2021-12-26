@@ -49,13 +49,13 @@
               <a href="#about" id="about-link" class="my-nav-link">About</a>
             </li>
             <li class="nav-item">
-              <a href="policedetails" class="my-nav-link">Police Details</a>
+              <a href="{% url 'policedetails' %}" class="my-nav-link">Police Details</a>
             </li>
             <li class="nav-item">
-              <a href="filecomplaintform" class="my-nav-link">File a complaint</a>
+              <a href="{% url 'filecomplaintform' %}" class="my-nav-link">File a complaint</a>
             </li>
             <li class="nav-item">
-              <a href="tactics" class="my-nav-link">Tactics</a>
+              <a href="{% url 'tactics' %}" class="my-nav-link">Tactics</a>
             </li>
             <!-- <li class = "nav-item">
                 <a href = "#portfolio" class = "nav-link">Portfolio</a>
@@ -78,11 +78,11 @@
               Hello, {{user.username}}!
             </li>
             <li class="nav-item">
-              <a href="logoutUser" class="my-nav-link">Logout</a>
+              <a href="{% url 'logoutUser' %}" class="my-nav-link">Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
-              <a href="signinupform" class="my-nav-link">Sign up/ Sign in</a>
+              <a href="{% url 'signinupform' %}" class="my-nav-link">Sign up/ Sign in</a>
             </li>
             {% endif %}
 
@@ -167,9 +167,7 @@
         <div class="single-about overlay">
           <span><i class="fas fa-question"></i></span>
           <h2 class="text-large">What is "Femzo"?</h2>
-          <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sed consequatur
-            beatae at reiciendis voluptatum quisquam, assumenda quod numquam voluptas!</p>
-          <a href="#" class="btn-link">read more</a>
+          <p class="text-light">Femzo is a web application which we have developed to provide a platform for women/girls who  get threating calls and face physicals and mental abuses in day-to-day life and social media. </p>
         </div>
         <!-- end of single item -->
 
@@ -177,9 +175,7 @@
         <div class="single-about overlay">
           <span><i class="fas fa-hands-helping"></i></span>
           <h2 class="text-large">Why should you use "Femzo"?</h2>
-          <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sed consequatur
-            beatae at reiciendis voluptatum quisquam, assumenda quod numquam voluptas!</p>
-          <a href="#" class="btn-link">read more</a>
+          <p class="text-light">With the help of this website victims or their companions can (FAC) file an instant complaint by registering and uploading necessary documents, an immediate rescue team will be appointed. She can contact or approach the nearby police stations through our website.</p>
         </div>
         <!-- end of single item -->
 
@@ -187,9 +183,7 @@
         <div class="single-about overlay">
           <span><i class="fas fa-laugh-beam"></i></span>
           <h2 class="text-large">Pros of "Femzo"</h2>
-          <p class="text-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sed consequatur
-            beatae at reiciendis voluptatum quisquam, assumenda quod numquam voluptas!</p>
-          <a href="#" class="btn-link">read more</a>
+          <p class="text-light">i) File an instant complaint & get an immediate response.<br> ii) Learn self-defence & rescue yourselves from unsafe situations. <br>iii) Get police station details.</p>
         </div>
         <!-- end of single item -->
       </div>
@@ -325,8 +319,7 @@
           </span>
           <div class="single-service-content">
             <h2 class="text-large">filing complaint</h2>
-            <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta veritatis atque
-              perferendis! Tenetur, sapiente impedit?</p>
+            <p class="text-light"></p>
           </div>
         </div>
         <!-- end of single item -->
@@ -337,8 +330,7 @@
           </span>
           <div class="single-service-content">
             <h2 class="text-large">Instant Chat with Security Organization</h2>
-            <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta veritatis atque
-              perferendis! Tenetur, sapiente impedit?</p>
+            <p class="text-light"></p>
           </div>
         </div>
         <!-- end of single item -->
@@ -349,8 +341,7 @@
           </span>
           <div class="single-service-content">
             <h2 class="text-large">Info of Help Centers</h2>
-            <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta veritatis atque
-              perferendis! Tenetur, sapiente impedit?</p>
+            <p class="text-light"></p>
           </div>
         </div>
         <!-- end of single item -->
@@ -361,8 +352,7 @@
           </span>
           <div class="single-service-content">
             <h2 class="text-large">Protecting user's/victim's info</h2>
-            <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta veritatis atque
-              perferendis! Tenetur, sapiente impedit?</p>
+            <p class="text-light"></p>
           </div>
         </div>
         <!-- end of single item -->
@@ -373,8 +363,7 @@
           </span>
           <div class="single-service-content">
             <h2 class="text-large">Blogs on Tactics for women safety</h2>
-            <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta veritatis atque
-              perferendis! Tenetur, sapiente impedit?</p>
+            <p class="text-light"></p>
           </div>
         </div>
         <!-- end of single item -->
@@ -384,9 +373,8 @@
             <i class="fas fa-flask"></i>
           </span>
           <div class="single-service-content">
-            <h2 class="text-large">app development</h2>
-            <p class="text-light">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta veritatis atque
-              perferendis! Tenetur, sapiente impedit?</p>
+            <h2 class="text-large">place is safe or not?</h2>
+            <p class="text-light"></p>
           </div>
         </div>
         <!-- end of single item -->
@@ -407,7 +395,7 @@
           </div>
 
           <div class="features-left-content">
-            <p class="text-light">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            
             <ul class="features-list">
               <li>
                 <span class="feat-list-icon">
@@ -476,16 +464,16 @@
 
 
   <!-- prices section -->
-  <section class="prices py-4" id="prices">
+  <!-- <section class="prices py-4" id="prices">
     <div class="container">
       <div class="title">
         <h2 class="title-text">Our Special Plan</h2>
         <div class="title-underline"></div>
-      </div>
+      </div> -->
 
-      <div class="prices-wrapper">
+      <!-- <div class="prices-wrapper"> -->
         <!-- single item -->
-        <div class="single-price overlay">
+        <!-- <div class="single-price overlay">
           <h2 class="text-uppercase">basic plan</h2>
           <div class="price-box">
             <h2 class="price-text">
@@ -498,10 +486,10 @@
             <li class="text-light">24/24 support</li>
           </ul>
           <button type="button" class="prices-btn">Purchase now</button>
-        </div>
+        </div> -->
         <!-- end of single item -->
         <!-- single item -->
-        <div class="single-price overlay">
+        <!-- <div class="single-price overlay">
           <h2 class="text-uppercase">silver plan</h2>
           <div class="price-box">
             <h2 class="price-text">
@@ -514,10 +502,10 @@
             <li class="text-light">24/24 support</li>
           </ul>
           <button type="button" class="prices-btn">Purchase now</button>
-        </div>
+        </div> -->
         <!-- end of single item -->
         <!-- single item -->
-        <div class="single-price overlay">
+        <!-- <div class="single-price overlay">
           <h2 class="text-uppercase">gold plan</h2>
           <div class="price-box">
             <h2 class="price-text">
@@ -530,11 +518,11 @@
             <li class="text-light">24/24 support</li>
           </ul>
           <button type="button" class="prices-btn">Purchase now</button>
-        </div>
+        </div> -->
         <!-- end of single item -->
-      </div>
+      <!-- </div>
     </div>
-  </section>
+  </section> -->
   <!-- end of prices section -->
 
   <!-- testimonial -->
@@ -544,57 +532,49 @@
         <!-- single item -->
         <div class="item">
           <div class="single-test-top">
-            <img src="../static/images/test-img-1.jpg" alt="testimonial image">
+            <img src="../static/css/images/lawyer.png" alt="testimonial image">
             <div>
-              <h2 class="text-large">john doe</h2>
+              <h2 class="text-large">INDIRA JAISING-A lawyer and human rights activist</h2>
               <h2 class="text-uppercase">web designer</h2>
             </div>
           </div>
-          <p class="text-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptatem atque nobis
-            aspernatur aperiam, eveniet impedit. Ratione inventore assumenda molestias, soluta cumque quam delectus
-            quidem.</p>
+          <p class="text-normal">Indira Jaising has been called ‘formidable’ by many especially when recounting her efforts in framing of the Domestic Violence Act</p>
         </div>
         <!-- end of single item -->
         <!-- single item -->
         <div class="item">
           <div class="single-test-top">
-            <img src="../static/images/test-img-2.jpg" alt="testimonial image">
+            <img src="../static/css/images/KirubaMunusamy.jpg" alt="testimonial image">
             <div>
-              <h2 class="text-large">sarah doe</h2>
+              <h2 class="text-large">Kiruba Munusamy</h2>
               <h2 class="text-uppercase">web designer</h2>
             </div>
           </div>
-          <p class="text-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptatem atque nobis
-            aspernatur aperiam, eveniet impedit. Ratione inventore assumenda molestias, soluta cumque quam delectus
-            quidem.</p>
+          <p class="text-normal">Despite facing threats and roadblocks from the justice system, Supreme Court advocate Kiruba Munusamy continues to fight against the atrocities against Dalit women, death penalty, the dangerous practice of manual scavenging, and state repression in the country.</p>
         </div>
         <!-- end of single item -->
         <!-- single item -->
         <div class="item">
           <div class="single-test-top">
-            <img src="../static/images/test-img-3.jpg" alt="testimonial image">
+            <img src="../static/css/images/ArundhatiRoy.jpg" alt="testimonial image">
             <div>
-              <h2 class="text-large">mike doe</h2>
+              <h2 class="text-large">Arundhati Roy</h2>
               <h2 class="text-uppercase">web designer</h2>
             </div>
           </div>
-          <p class="text-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptatem atque nobis
-            aspernatur aperiam, eveniet impedit. Ratione inventore assumenda molestias, soluta cumque quam delectus
-            quidem.</p>
+          <p class="text-normal">'They are trying to keep me destabilised. Anybody who says anything is in danger'</p>
         </div>
         <!-- end of single item -->
         <!-- single item -->
         <div class="item">
           <div class="single-test-top">
-            <img src="../static/images/test-img-4.jpg" alt="testimonial image">
+            <img src="../static/css/images/kamla bhasin.png" alt="testimonial image">
             <div>
-              <h2 class="text-large">tina doe</h2>
-              <h2 class="text-uppercase">web designer</h2>
+              <h2 class="text-large">Kamla Bhasin</h2>
+              <h2 class="text-uppercase">(1946-2021), renowned feminist, poet and social</h2>
             </div>
           </div>
-          <p class="text-normal">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem voluptatem atque nobis
-            aspernatur aperiam, eveniet impedit. Ratione inventore assumenda molestias, soluta cumque quam delectus
-            quidem.</p>
+          <p class="text-normal">A Feminist Who Lived By the Slogan 'Rise, Not Fall, in Love'</p>
         </div>
         <!-- end of single item -->
       </div>
@@ -696,73 +676,67 @@
       <div class="blog-wrapper">
         <!-- single item -->
         <div class="single-blog">
-          <img src="../static/images/blog-img-1.jpg" alt="blog image">
+          <img src="../static/css/images/thumbs/masonry/women4.jpg" alt="blog image">
           <div class="single-blog-content">
             <div class="single-blog-top">
               <span>
-                <i class="fas fa-user"></i> John Doe
+                <i class="fas fa-user"></i> J. Root
               </span>
               <span>
-                <i class="fas fa-clock"></i> 18 Oct
+                <i class="fas fa-clock"></i> 11 June
               </span>
               <span>
-                <i class="fas fa-comment"></i> 57
+                <i class="fas fa-comment"></i> 2021
               </span>
             </div>
 
-            <h2 class="text-large">Lorem ipsum dolor sit amet</h2>
-            <p class="text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad inventore commodi
-              aliquid, sint explicabo atque. Odit sequi consequatur ut numquam harum. Eum perferendis reprehenderit
-              excepturi fugit adipisci veniam.</p>
-            <a href="#" class="btn-link">Read More</a>
+            <h2 class="text-large">"Hope My Story Inspires"</h2>
+            <p class="text-light">A woman who accused her co-worker and boyfriend of sexual harassment at the peak of India's #MeToo movement last year has spoken about her experience in a powerful 'Humans of Bombay' Facebook post</p>
+            <a href="{% url 'tactics' %}" class="btn-link">Read More</a>
           </div>
         </div>
         <!-- end of single item -->
         <!-- single item -->
         <div class="single-blog">
-          <img src="../static/images/blog-img-2.jpg" alt="blog image">
+          <img src="../static/css/images/thumbs/masonry/women13.jpg" alt="blog image">
           <div class="single-blog-content">
             <div class="single-blog-top">
               <span>
-                <i class="fas fa-user"></i> John Doe
+                <i class="fas fa-user"></i> B. Robert Van
               </span>
               <span>
-                <i class="fas fa-clock"></i> 18 Oct
+                <i class="fas fa-clock"></i> 1 Oct
               </span>
               <span>
-                <i class="fas fa-comment"></i> 57
+                <i class="fas fa-comment"></i> 2021
               </span>
             </div>
 
-            <h2 class="text-large">Lorem ipsum dolor sit amet</h2>
-            <p class="text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad inventore commodi
-              aliquid, sint explicabo atque. Odit sequi consequatur ut numquam harum. Eum perferendis reprehenderit
-              excepturi fugit adipisci veniam.</p>
-            <a href="#" class="btn-link">Read More</a>
+            <h2 class="text-large">SAFETY TIPS FOR WOMEN.</h2>
+            <p class="text-light">To help women feel empowered and prepared for whatever life may throw their way, we have created the five-point safety plan listed below.</p>
+            <a href="{% url 'tactics' %}" class="btn-link">Read More</a>
           </div>
         </div>
         <!-- end of single item -->
         <!-- single item -->
         <div class="single-blog">
-          <img src="../static/images/blog-img-3.jpg" alt="blog image">
+          <img src="../static/css/images/thumbs/masonry/women7.jpg" alt="blog image">
           <div class="single-blog-content">
             <div class="single-blog-top">
               <span>
                 <i class="fas fa-user"></i> John Doe
               </span>
               <span>
-                <i class="fas fa-clock"></i> 18 Oct
+                <i class="fas fa-clock"></i> 18 Dec
               </span>
               <span>
-                <i class="fas fa-comment"></i> 57
+                <i class="fas fa-comment"></i> 2020
               </span>
             </div>
 
-            <h2 class="text-large">Lorem ipsum dolor sit amet</h2>
-            <p class="text-light">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad inventore commodi
-              aliquid, sint explicabo atque. Odit sequi consequatur ut numquam harum. Eum perferendis reprehenderit
-              excepturi fugit adipisci veniam.</p>
-            <a href="#" class="btn-link">Read More</a>
+            <h2 class="text-large">Reasons Everyone Should Learn Self-Defense.</h2>
+            <p class="text-light">Honestly, we barely know what will happen the next moment or the next day. Be that as it may, our life is the most precious thing that ever happens so, why to take a risk? Instead enroll a self-defense class to handle every situation in life .</p>
+            <a href="{% url 'tactics' %}" class="btn-link">Read More</a>
           </div>
         </div>
         <!-- end of single item -->
@@ -788,7 +762,7 @@
               <i class="fas fa-phone"></i>
             </span>
             <h2 class="text-large">Phone</h2>
-            <p class="text-light">512-421-3940</p>
+            <p class="text-light">222333444</p>
           </div>
           <!-- end of single item -->
           <!-- single item -->
@@ -797,7 +771,7 @@
               <i class="fas fa-envelope"></i>
             </span>
             <h2 class="text-large">Email</h2>
-            <p class="text-light">Femzo@support.com</p>
+            <p class="text-light">femzoforall@gmail.com</p>
           </div>
           <!-- end of single item -->
           <!-- single item -->
@@ -806,7 +780,7 @@
               <i class="fas fa-map-marker-alt"></i>
             </span>
             <h2 class="text-large">Location</h2>
-            <p class="text-light">1833 Bubby Drive</p>
+            <p class="text-light">Ibrahim Bagh, Hyderabad</p>
           </div>
           <!-- end of single item -->
         </div>
@@ -830,7 +804,7 @@
   <footer>
     <div class="footer-content">
       <h2>Femzo</h2>
-      <span class="footer-span-content"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ex qui minus assumenda est.</p></span>
+      <span class="footer-span-content"><p>Website build for women safety.</p></span>
       <ul class="footer-icons">
         <li><a href="#"><i class="fab fa-twitter"></i></a></li>
         <li><a href="#"><i class="fab fa-linkedin"></i></a></li>

@@ -143,9 +143,7 @@ MEDIA_URL = "/media/"
 # smtp mails sending
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT=587
-# EMAIL_HOST_USER='kulkarnikrishna0925@gmail.com'
 EMAIL_HOST_USER='femzoforall@gmail.com'
-# EMAIL_HOST_PASSWORD='krishna0925'
 EMAIL_HOST_PASSWORD='femzo2021'
 EMAIL_USE_TLS=True
 

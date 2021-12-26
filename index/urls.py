@@ -13,4 +13,6 @@ urlpatterns = [
     path("reset/",views.reset_psdetails,name="reset"),
     path("policedetails/",views.policedetails,name="policedetails"),
     path("tactics/",views.tactics,name="tactics"),
+    path("forgotPassword/",views.forgotPassword,name="forgotPassword"),
+    path("resetPassword/",views.resetPassword,name="resetPassword")
 ]

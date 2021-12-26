@@ -13,6 +13,8 @@ from django.core.files import File
 
 # Create your views here.
 
+temp_username=""
+
 def home(request):
     context={
         'notappr':11,
@@ -65,7 +67,7 @@ def render_to_pdf(template_src, context_dict={}):
     if not pdf.err:
         return HttpResponse(result.getvalue(), content_type='application/pdf')
     return None
-
+@login_required(login_url='signinupform')
 def filecomplaintform(request):
     if request.method == 'POST':
         context = {
@@ -79,7 +81,8 @@ def filecomplaintform(request):
             'image':request.FILES.get('image'),
             'vedio':request.FILES.get('vedio'),
             'message':request.POST.get('message'),
-            'id':request.FILES.get('id')
+            'id':request.FILES.get('id'),
+            'gen':request.POST.get('Gender')
         }
         comp = complaint(
             user_name=request.user,
@@ -93,7 +96,8 @@ def filecomplaintform(request):
             message = context['message'],
             idprooof = context['id'],
             image = context['image'],
-            vedio = context['vedio']
+            vedio = context['vedio'],
+            gender=context['gen']
         )
         
         e=EmailMessage('complaint filed successfully!',
@@ -107,7 +111,7 @@ def filecomplaintform(request):
         res=BytesIO()
         pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), res)
         pdf = res.getvalue()
-        filename = 'Responses_' + context['firstName'] + '.pdf'
+        filename = 'Responses_' + request.user + "_" + context['firstName'] + '.pdf'
         e.attach(filename,pdf,'application/pdf')
         e.attach(context['id'].name,context['id'].read(),context['id'].content_type)
         e.attach(context['vedio'].name,context['vedio'].read(),context['vedio'].content_type)
@@ -120,7 +124,6 @@ def filecomplaintform(request):
 def signinupform(request):
     if request.method == 'POST':
         if 'register' in request.POST:
-            
             context = {
                 'username':request.POST.get('username'),
                 'password':request.POST.get('password'),
@@ -192,3 +195,26 @@ def policedetails(request):
     return render(request,"policedetails.html",{'flag':flag})
 def tactics(request):
     return render(request,"tactics.html")
+
+def forgotPassword(request):
+    if request.method=="POST":
+        temp_username=request.POST['username']
+        e=EmailMessage('Reset Password e-mail.',
+            'Link to reset your account password is given below..\n'+"http://127.0.0.1:8000/resetPassword/"+"\nIf you find link is not clickable. Please, copy the whole link and paste in the url space of your browser.",
+            settings.EMAIL_HOST_USER,
+            [request.POST['email']]
+        )
+        e.send()
+        return redirect("signinupform")
+    return render(request,"forgot_password.html")
+def resetPassword(request):
+    if request.method=="POST":
+        p1=request.POST['pwd1']
+        p2=request.POST['pwd1']
+        if p1==p2 :
+            u = User.objects.filter(username=temp_username)
+            u.update
+            return redirect('logoutUser')
+        else:
+            return redirect("resetPassword")
+    return render(request,"reset_password.html")

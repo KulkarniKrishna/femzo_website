@@ -35,6 +35,7 @@ class complaint(models.Model):
     vedio = models.FileField(upload_to='data/vids/')
     image = models.FileField(upload_to='data/imgs/')
     message = models.TextField(max_length=50)
+    gender=models.CharField(max_length=50,default='NA',null=True)
 
     def __str__(self) -> str:
         return str(self.cid)+') '+self.victims_fname+' '+self.victims_lname+' <- '+str(self.user_name)
