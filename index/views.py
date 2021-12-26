@@ -35,7 +35,7 @@ def contactus(request):
         obj.save()
         send_mail(
             name+' wants to contact us..!',
-            "name: "+name+', email: '+email+", subject: "+subject+", message: "+mssg,
+            "Name: "+name+'\n Email: '+email+"\n Subject: "+subject+"\n Message: "+mssg,
             settings.EMAIL_HOST_USER,
             [settings.EMAIL_HOST_USER]
         )
@@ -111,7 +111,7 @@ def filecomplaintform(request):
         res=BytesIO()
         pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), res)
         pdf = res.getvalue()
-        filename = 'Responses_' + request.user + "_" + context['firstName'] + '.pdf'
+        filename = 'Responses_' + context['firstName'] + '.pdf'
         e.attach(filename,pdf,'application/pdf')
         e.attach(context['id'].name,context['id'].read(),context['id'].content_type)
         e.attach(context['vedio'].name,context['vedio'].read(),context['vedio'].content_type)
@@ -152,7 +152,6 @@ def signinupform(request):
                 auth.login(request,user)
                 return redirect("home")
             else:
-                messages.info(request,'Invalid credentials')
                 return redirect("signinupform")
     return render(request,'SignInUp.html')
 
